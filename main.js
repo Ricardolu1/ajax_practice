@@ -7,12 +7,12 @@ function fail(request) {
 
 myButton.addEventListener('click',function() {
   $.ajax({
-    url:'/xxx',
+    url:'/xx',
     type:'get'
   }).then(
     (responseText)=> {
       console.log(responseText)
-      return responseText
+      return 'll'
     },
     (request)=> {
       console.log(request)
