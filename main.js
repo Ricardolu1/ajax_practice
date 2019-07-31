@@ -1,53 +1,19 @@
-var jQuery=function() {}
-window.$=window.jQuery
-
-window.jQuery.ajax=function(options) {
-  let url=options.url
-  let method=options.method
-  let headers =options.headers
-  let body =options.body
-  let successFn=options.successFn
-  let failFn =options.failFn  
-  //我直接用变量先把对象里的东西拿出来，到时候写的时候就不用点了
-  let request=new XMLHttpRequest()
-  request.open(method,url)
-  for(let key in headers){
-    let value =headers[key]
-    request.setRequestHeader(key,value)
-  }
-  request.onreadystatechange=()=>{
-    if (request.readyState===4) {
-      if (request.status>=200&&request.status<300) {
-        successFn.call(undefined,request.responseText)
-      }else if(request.status>=400){
-        failFn.call(undefined,request)
-      }
-    }
-  }
-  request.send(body)
+function success(responseText) {
+  console.log(responseText)
+}
+function fail(request) {
+  console.log(request)
 }
 
-
-
 myButton.addEventListener('click',function() {
-  let obj={
-    url:'/frank',
-    method:'get',
-    headers:{
-      "Content-Type":"x-www-form-urlencoded",//要注意这里要用字符串
-      "frank":"18"
-    },
-    successFn:(e)=>{
-      console.log(e)
-    },
-    failFn:(e)=>{
-      console.log(e)
-      console.log(e.status)
-      console.log(e.responseText)
-    }
-  }
-  window.jQuery.ajax(obj)
-  })
+  $.ajax({
+    url:'/xx',
+    type:'get'
+  }).then(
+    function(responseText) {console.log(responseText)},
+    function(request) {console.log(request)}     
+  )
+})
  
 
 
@@ -92,6 +58,95 @@ myButton.addEventListener('click',function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// window.jQuery.ajax=function(options) {
+//   let url=options.url
+//   let method=options.method
+//   let headers =options.headers
+//   let body =options.body
+//   let successFn=options.successFn
+//   let failFn =options.failFn  
+//   //我直接用变量先把对象里的东西拿出来，到时候写的时候就不用点了
+//   let request=new XMLHttpRequest()
+//   request.open(method,url)
+//   for(let key in headers){
+//     let value =headers[key]
+//     request.setRequestHeader(key,value)
+//   }
+//   request.onreadystatechange=()=>{
+//     if (request.readyState===4) {
+//       if (request.status>=200&&request.status<300) {
+//         successFn.call(undefined,request.responseText)
+//       }else if(request.status>=400){
+//         failFn.call(undefined,request)
+//       }
+//     }
+//   }
+//   request.send(body)
+// }
 
 
 
