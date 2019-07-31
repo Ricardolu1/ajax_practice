@@ -7,11 +7,20 @@ function fail(request) {
 
 myButton.addEventListener('click',function() {
   $.ajax({
-    url:'/xx',
+    url:'/xxx',
     type:'get'
   }).then(
-    function(responseText) {console.log(responseText)},
-    function(request) {console.log(request)}     
+    (responseText)=> {
+      console.log(responseText)
+      return responseText
+    },
+    (request)=> {
+      console.log(request)
+      return '已经处理'
+    }     
+  ).then(
+    (n)=>{console.log(n)},
+    (request)=>{console.log('error2')}
   )
 })
  
