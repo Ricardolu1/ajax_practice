@@ -16,11 +16,11 @@ myButton.addEventListener('click',function() {
     },
     (request)=> {
       console.log(request)
-      return '已经处理'
+      return '12'
     }     
   ).then(
     (n)=>{console.log(n)},
-    (request)=>{console.log('error2')}
+    (x)=>{console.log('error2')}
   )
 })
  
